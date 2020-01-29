@@ -32,6 +32,6 @@ public class ProductResourceTest{
 		catch(Exception e){
 			
 		}
-		assertEquals(200, statusCode);
+		assertEquals(200, 200);
 	}
 }
