@@ -10,9 +10,8 @@
 	<packaging>war</packaging>
 
     <properties>
-        <maven.compiler.source>10</maven.compiler.source>
-        <maven.compiler.target>10</maven.compiler.target>
-        <maven.compiler.release>10</maven.compiler.release>
+		<source>10</source>
+		<target>10</target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jstl.version>1.2.5</jstl.version>
     </properties>
