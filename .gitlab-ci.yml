@@ -9,3 +9,15 @@ test:
   stage: test
   script:
     - mvn test
+sonarcloud-check:
+  image: maven:latest
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - mvn verify sonar:sonar
+  only:
+    - merge_requests
+    - master
+    - develop
