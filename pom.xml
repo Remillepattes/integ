@@ -10,8 +10,8 @@
 	<packaging>war</packaging>
 
     <properties>
-		<source>10</source>
-		<target>10</target>
+		<source>1.6</source>
+		<target>1.6</target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jstl.version>1.2.5</jstl.version>
         <sonar.projectKey>RMLaroche_integ</sonar.projectKey>
