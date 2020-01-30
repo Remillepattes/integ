@@ -1,6 +1,13 @@
-build:
-  stage: build
+stages:
+  - build
+  - test
+
+maven_build:
+  stage: test
+  tags:
+    - maven
   script:
+    - echo "Building project with maven"
     - mvn verify
 variables:
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
