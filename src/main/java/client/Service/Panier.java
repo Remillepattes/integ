@@ -12,13 +12,14 @@ public class Panier {
 	protected List<Product> products = new ArrayList<Product>();
 	
 	public void addProduct(Product product) {
-		products.add(product);
+		this.products.add(product);
 	}
 	public List<Product> getProducts() {
 		return products;
 	}
 	public double getPrice() {
 		double price = 0;
+		
 		for (Product product : products) {
 			price+=product.getPrice_product();
 		}

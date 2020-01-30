@@ -26,15 +26,15 @@ public class PanierTest {
 		parbrise.setPrice_product(112);
 		
 		Product retroviseur = new Product();
-		parbrise.setDesc_product("2");
-		parbrise.setName_product("Rétroviseur");
-		parbrise.setPrice_product(40);
+		retroviseur.setDesc_product("2");
+		retroviseur.setName_product("Rétroviseur");
+		retroviseur.setPrice_product(40);
 		
 		
 		Panier panier = new Panier();
 		panier.addProduct(parbrise);
 		panier.addProduct(retroviseur);
-		assertEquals(112+40, panier.getPrice());
+		assertEquals(112+40, panier.getPrice(), 0);
 	}
 		
 }
