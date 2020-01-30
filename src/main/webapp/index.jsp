@@ -7,6 +7,6 @@
     <title>Java EE</title>
   </head>
   <body>
-  	<a href="<c:url value="/inscription"/>">S'inscrire</a>  
+  	Bienvenue sur l'API . 
   </body>
 </html>

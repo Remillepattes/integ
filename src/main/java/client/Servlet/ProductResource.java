@@ -21,7 +21,5 @@ public class ProductResource {
 	public List<Product> getPieces() {
 	return productService.getProductList();
 	}
-	
-	
 
 }
