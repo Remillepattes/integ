@@ -7,6 +7,6 @@
     <title>Java EE</title>
   </head>
   <body>
-  	Bienvenue sur l'application API DMO. 
+  	Bienvenue sur l'API . 
   </body>
 </html>
