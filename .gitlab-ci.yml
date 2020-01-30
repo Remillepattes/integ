@@ -1,3 +1,7 @@
+build:
+  stage: build
+  script:
+    - mvn $MAVEN_CLI_OPTS compile
 variables:
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
@@ -13,12 +17,7 @@ sonarcloud-check:
     - merge_requests
     - master
     - develop
-java:
+test:
   stage: test
   script:
-  - mvn verify
-  artifacts:
-    reports:
-      junit:
-        - target/surefire-reports/TEST-*.xml
-        - target/failsafe-reports/TEST-*.xml
+    - mvn $MAVEN_CLI_OPTS test
