@@ -20,8 +20,21 @@ import client.Service.ProductService;
 public class ProductResource extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		getPieces();
-		System.out.println(getPieces());
+		
+	    response.setContentType("text/html");
+	    PrintWriter out = response.getWriter();
+
+	    out.println("<html>");
+	    out.println("<head>");
+	    out.println("<title>Tous les produits</title>");
+	    out.println("</head>");
+	    out.println("<body bgcolor=\"white\">");
+	    out.println("<p>Chaise grise</p>");
+	    out.println("<p>Chaise verte</p>");
+	    out.println("<p>Chaise marron</p>");
+	    out.println("<p>Chaise violette</p>");
+	    out.println("</body>");
+	    out.println("</html>");
 	}
 	
 	@EJB

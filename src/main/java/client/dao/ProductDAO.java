@@ -1,10 +1,15 @@
 package client.dao;
 
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
 
 import client.Entity.Product;
 

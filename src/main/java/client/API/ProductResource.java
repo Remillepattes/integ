@@ -13,7 +13,7 @@ import javax.ws.rs.Produces;
 import client.Entity.Product;
 import client.Service.ProductService;
 
-@Path("/products")
+@Path("/api/products")
 public class ProductResource {
 	
 	@EJB
