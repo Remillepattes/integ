@@ -3,8 +3,13 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 
+	<servlet>
+	    <servlet-name>ProductResource</servlet-name>
+	    <servlet-class>client.Servlet.ProductResource</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
-		<servlet-name>javax.ws.rs.core.Application</servlet-name>
-		<url-pattern>/api/*</url-pattern>
+	    <servlet-name>ProductResource</servlet-name>  
+	    <url-pattern>/products</url-pattern>
 	</servlet-mapping>
 </web-app>
