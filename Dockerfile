@@ -1,6 +1,10 @@
-# Alpine Linux with OpenJDK JRE
-FROM openjdk:8-jre-alpine
-# copy WAR into image
-COPY spring-boot-app-0.0.1-SNAPSHOT.war /app.war 
-# run application with this command line 
-CMD ["/usr/bin/java", "-jar", "-Dspring.profiles.active=default", "/app.war"]
+FROM openjdk:8-jre
+MAINTAINER David Flemström <dflemstr@spotify.com>
+
+ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/myservice/myservice.jar"]
+
+# Add Maven dependencies (not shaded into the artifact; Docker-cached)
+ADD target/lib           /usr/share/myservice/lib
+# Add the service itself
+ARG JAR_FILE
+ADD target/${JAR_FILE} /usr/share/myservice/myservice.jar
