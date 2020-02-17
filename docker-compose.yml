@@ -1,23 +1,4 @@
 version: '3'
-
 services:
-   mysql:
-     image: mysql:5.7
-     volumes:
-       - mysql_data:/var/lib/mysql
-     ports:
-       - 3306:3306
-     environment:
-       MYSQL_ROOT_PASSWORD: password
-       MYSQL_DATABASE: epsi-contrat
-       MYSQL_PASSWORD: password
-   phpmyadmin:
-     image: phpmyadmin/phpmyadmin
-     environment:
-     - PMA_ARBITRARY=1
-     ports:
-     - 8000:80
-     volumes:
-     - /sessions
-volumes:
-  mysql_data:
+  web:
+    image: 'image:latest'

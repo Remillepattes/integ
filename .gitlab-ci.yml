@@ -1,5 +1,14 @@
 image: maven:latest
 
+before_script:
+  - echo "deb http://packages.cloud.google.com/apt cloud-sdk-jessie main" | tee /etc/apt/sources.list.d/google-cloud-sdk.list
+  - curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+  - apt-get update
+  - apt-get -qq -y install google-cloud-sdk
+
+after_script:
+  - rm /tmp/$CI_PIPELINE_ID.json
+
 build:
   stage: build
   script:
@@ -21,10 +30,3 @@ sonarcloud-check:
     - merge_requests
     - master
     - develop
-
-deploy to production:
-  stage: deploy
-  script: make deploy
-  environment:
-    name: production
-    url: https://35.189.238.26
