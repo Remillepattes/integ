@@ -7,6 +7,6 @@
     <title>Java EE</title>
   </head>
   <body>
-  	Bienvenue sur l'API.
+  	Bienvenue sur le site !
   </body>
 </html>
