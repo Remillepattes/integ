@@ -18,27 +18,34 @@ import client.Service.ProductService;
 
 @Path("/products")
 public class ProductResource extends HttpServlet {
-
+	//@EJB
+	private ProductService productService = new ProductService();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 	    response.setContentType("text/html");
 	    PrintWriter out = response.getWriter();
-
 	    out.println("<html>");
 	    out.println("<head>");
 	    out.println("<title>Tous les produits</title>");
 	    out.println("</head>");
 	    out.println("<body bgcolor=\"white\">");
+	    /*
 	    out.println("<p>Chaise grise</p>");
 	    out.println("<p>Chaise verte</p>");
 	    out.println("<p>Chaise marron</p>");
 	    out.println("<p>Chaise violette</p>");
+	    */
+	    
+	    
+	    for (Product p : productService.getProductList()) {
+	    	out.println("<p>"+p.getName_product()+"</p>");
+		}
 	    out.println("</body>");
 	    out.println("</html>");
 	}
 	
-	@EJB
-	private ProductService productService;
+	
 
 	@GET
 	@Produces("application/json")
