@@ -21,3 +21,10 @@ sonarcloud-check:
     - merge_requests
     - master
     - develop
+
+deploy to production:
+  stage: deploy
+  script: make deploy
+  environment:
+    name: production
+    url: https://35.189.238.26
