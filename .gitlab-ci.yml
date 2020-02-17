@@ -22,6 +22,7 @@ sonarcloud-check:
     - master
     - develop
 deploy :
+  stage: deploy
   script: make deploy
   environment:
     name: production
