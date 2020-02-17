@@ -1,9 +1,4 @@
-service-a:
-  build: a/
-  ports:
-  - '80'
-
-service-b:
-  build: b/
-  links:
-  - service-a
+version: '3'
+services:
+  web:
+    image: 'image:latest'
