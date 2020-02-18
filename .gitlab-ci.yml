@@ -23,5 +23,4 @@ deploy:
     - echo "${STAGING_PRIVATE_KEY}"
     - echo "${STAGING_PRIVATE_KEY}" | ssh-add -
     - ssh -p22 REMY@35.195.21.10 "sudo rm /produits/tomcat/webapps/epsi-contrat.war && sudo rm -r /produits/tomcat/webapps/epsi-contrat"
-
-    - find . -name "epsi-contrat.war" -exec scp -r -P22 '{}' REMY@35.195.21.10:htdocs/produits/tomcat/webapps/
+    - scp -P22 -r /builds/RMLaroche/integ/target/epsi-contrat-0.0.1-SNAPSHOT.war REMY@35.195.21.10:htdocs/produits/tomcat/webapps/epsi-contrat.war
