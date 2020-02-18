@@ -37,15 +37,24 @@ public class ProductResource extends HttpServlet {
 	    out.println("<p>Chaise violette</p>");
 	    */
 	    
-	    
+	    out.println("<table style=\"width:100%\">");
+	    out.println("<tr>");
+	    out.println("<th>Nom du produit</th>");
+	    out.println("<th>Description</th>");
+	    out.println("<th>Prix</th>");
+	    out.println("</tr>");
+
 	    for (Product p : productService.getProductList()) {
-	    	out.println("<p>"+p.getName_product()+"</p>");
+	    	out.println("<tr>");
+	    	out.println("<td>"+p.getName_product()+"<td>");
+	    	out.println("<td>"+p.getDesc_product()+"<td>");
+	    	out.println("<td>"+p.getPrice_product()+"<td>");
+	    	out.println("</tr>");
 		}
+	    out.println("</table>");
 	    out.println("</body>");
 	    out.println("</html>");
 	}
-	
-	
 
 	@GET
 	@Produces("application/json")
