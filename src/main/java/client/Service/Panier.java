@@ -25,4 +25,4 @@ public class Panier {
 		}
 		return price;
 	}
-}
+} 

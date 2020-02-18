@@ -8,7 +8,7 @@ import java.net.URL;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-import client.Entity.Product;
+import client.Entity.*;
 import client.Service.Panier;
 
 public class PanierTest {
