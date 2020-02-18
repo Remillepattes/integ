@@ -21,7 +21,8 @@ sonarcloud-check:
     - merge_requests
     - master
     - develop
-deploy :
+    
+deploy:
   stage: deploy
     script:
       - ssh-add <(echo "$STAGING_PRIVATE_KEY")
