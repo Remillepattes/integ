@@ -21,7 +21,3 @@ sonarcloud-check:
     - merge_requests
     - master
     - develop
-git:
-    - git add .
-    - git commit
-    - git push
