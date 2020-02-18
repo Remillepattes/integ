@@ -24,7 +24,7 @@ sonarcloud-check:
     
 deploy:
   stage: deploy
-    script:
-      - ssh-add <(echo "$STAGING_PRIVATE_KEY")
-      - ssh -p22 maclef@35.195.21.10 "sudo -s rm /produits/tomcat/webapps/epsi-contrat.war && rm -r /produits/tomcat/webapps/epsi-contrat"
-      - scp -P22 -r target/epsi-contrat.war maclef@35.195.21.10:htdocs/produits/tomcat/webapps/
+  script:
+    - ssh-add <(echo "$STAGING_PRIVATE_KEY")
+    - ssh -p22 maclef@35.195.21.10 "sudo -s rm /produits/tomcat/webapps/epsi-contrat.war && rm -r /produits/tomcat/webapps/epsi-contrat"
+    - scp -P22 -r target/epsi-contrat.war maclef@35.195.21.10:htdocs/produits/tomcat/webapps/
