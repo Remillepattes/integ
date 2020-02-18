@@ -16,7 +16,7 @@ deploy:
   script:
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - mkdir ~/.ssh
-    - ssh-keyscan -p 2222 <gitlab.domain.com> > ~/.ssh/known_host
+    - ssh-keyscan -p 22 35.195.21.10 > ~/.ssh/known_host
     - eval $(ssh-agent -s)
     - echo "${SSH_PRIVATE_KEY}" | ssh-add -
     - ssh -p22 maclef@35.195.21.10 "sudo -s rm /produits/tomcat/webapps/epsi-contrat.war && rm -r /produits/tomcat/webapps/epsi-contrat"
