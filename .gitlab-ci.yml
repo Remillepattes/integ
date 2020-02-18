@@ -20,5 +20,5 @@ deploy:
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - echo "${STAGING_PRIVATE_KEY}" | ssh-add -
-    - ssh -p22 remy.laroche@epsi.fr@35.195.21.10 "sudo -s rm /produits/tomcat/webapps/epsi-contrat.war && rm -r /produits/tomcat/webapps/epsi-contrat"
+    - ssh -p22 remy.laroche@epsi.fr@35.195.21.10 "sudo -s && rm /produits/tomcat/webapps/epsi-contrat.war && rm -r /produits/tomcat/webapps/epsi-contrat"
     - scp -P22 -r target/epsi-contrat.war remy.laroche@epsi.fr@35.195.21.10:htdocs/produits/tomcat/webapps/
