@@ -8,9 +8,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
-
 import client.Entity.Product;
 
 
