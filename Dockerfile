@@ -1,4 +1,4 @@
 FROM openjdk:8-jre
 WORKDIR /
-ADD app.jar app.jar 
+ADD build/libs/epsi-contrat-0.0.1-SNAPSHOT.jar /epsi-contrat-0.0.1-SNAPSHOT.jar
 CMD java - jar app.jar 
