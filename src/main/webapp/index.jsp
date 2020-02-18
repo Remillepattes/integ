@@ -3,9 +3,11 @@
 <html>
   <head>
   	<meta charset="UTF-8">
-    <title>Java EE</title>
+    <title>Boutique RCR</title>
   </head>
   <body>
-  	Bienvenue sur le site !
+  <h1>Bienvenue sur la boutique RCR !</h1>
+  	</br>
+  	<h2><a href="./products"> <button>Liste des produits</button></a><h2>
   </body>
 </html>

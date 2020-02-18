@@ -1,23 +1,27 @@
 image: maven:latest
 
-build:
-  stage: build
-  script:
-    - mvn compile
+#build:
+#  stage: build
+#  script:
+#    - mvn compile
 
-test:
-  stage: test
+#test:
+#  stage: test
+#  script:
+#    - mvn test
+
+    
+deploy:
+  stage: deploy
   script:
-    - mvn test
-sonarcloud-check:
-  image: maven:latest
-  cache:
-    key: "${CI_JOB_NAME}"
-    paths:
-      - .sonar/cache
-  script:
-    - mvn verify sonar:sonar
-  only:
-    - merge_requests
-    - master
-    - develop
+    - mvn package
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir ~/.ssh
+    - ssh-keyscan -p 22 35.195.21.10 > ~/.ssh/known_host
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - echo "${STAGING_PRIVATE_KEY}"
+    - echo "${STAGING_PRIVATE_KEY}" | ssh-add -
+    - ssh -p22 REMY@35.195.21.10 "sudo rm /produits/tomcat/webapps/epsi-contrat.war && sudo rm -r /produits/tomcat/webapps/epsi-contrat"
+    - scp -P22 -r /builds/RMLaroche/integ/target/epsi-contrat-0.0.1-SNAPSHOT.war REMY@35.195.21.10:/home/REMY
+    - ssh -p22 REMY@35.195.21.10 "sudo mv /home/REMY/epsi-contrat-0.0.1-SNAPSHOT.war /produits/tomcat/webapps/epsi-contrat.war"
