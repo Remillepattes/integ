@@ -1,14 +1,22 @@
 image: maven:latest
 
-#build:
-#  stage: build
-#  script:
-#    - mvn compile
+build:
+  stage: build
+  script:
+    - mvn compile
 
-#test:
-#  stage: test
-#  script:
-#    - mvn test
+test:
+  stage: test
+  script:
+    - mvn test
+sonarcloud-check:
+  image: maven:latest
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - mvn verify sonar:sonar
 
     
 deploy:
