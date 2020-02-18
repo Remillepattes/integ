@@ -16,6 +16,6 @@ deploy:
   script:
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - eval $(ssh-agent -s)
-    - echo "${SSH_PRIVATE_KEY}" | tr -d ' ' | base64 --decode | ssh-add -
+    - echo "${SSH_PRIVATE_KEY}" | ssh-add -
     - ssh -p22 maclef@35.195.21.10 "sudo -s rm /produits/tomcat/webapps/epsi-contrat.war && rm -r /produits/tomcat/webapps/epsi-contrat"
     - scp -P22 -r target/epsi-contrat.war maclef@35.195.21.10:htdocs/produits/tomcat/webapps/
