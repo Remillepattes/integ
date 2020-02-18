@@ -5,10 +5,10 @@ build:
   script:
     - mvn compile
 
-test:
-  stage: test
-  script:
-    - mvn test
+#test:
+#  stage: test
+#  script:
+#    - mvn test
 
     
 deploy:
@@ -22,4 +22,4 @@ deploy:
     - echo "${STAGING_PRIVATE_KEY}"
     - echo "${STAGING_PRIVATE_KEY}" | ssh-add -
     - ssh -p22 REMY@35.195.21.10 "sudo rm /produits/tomcat/webapps/epsi-contrat.war && sudo rm -r /produits/tomcat/webapps/epsi-contrat"
-    - scp -P22 -r target/epsi-contrat.war REMY@35.195.21.10:htdocs/produits/tomcat/webapps/
+    - scp -P22 -r /target/epsi-contrat.war REMY@35.195.21.10:htdocs/produits/tomcat/webapps/
