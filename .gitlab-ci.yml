@@ -19,6 +19,7 @@ deploy:
     - ssh-keyscan -p 22 35.195.21.10 > ~/.ssh/known_host
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - echo "${STAGING_PRIVATE_KEY}"
     - echo "${STAGING_PRIVATE_KEY}" | ssh-add -
     - ssh -p22 remy.laroche@epsi.fr@35.195.21.10 "sudo rm /produits/tomcat/webapps/epsi-contrat.war && sudo rm -r /produits/tomcat/webapps/epsi-contrat"
     - scp -P22 -r target/epsi-contrat.war remy.laroche@epsi.fr@35.195.21.10:htdocs/produits/tomcat/webapps/
