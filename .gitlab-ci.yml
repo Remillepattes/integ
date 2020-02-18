@@ -14,7 +14,7 @@ image: maven:latest
 deploy:
   stage: deploy
   script:
-    - mvn package
+    - mvn build
     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
     - mkdir ~/.ssh
     - ssh-keyscan -p 22 35.195.21.10 > ~/.ssh/known_host
