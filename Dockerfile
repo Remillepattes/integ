@@ -1,4 +1,4 @@
 FROM java8
-WORKDIR 
+WORKDIR /
 ADD app.jar app.jar 
 CMD java - jar app.jar 
