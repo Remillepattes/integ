@@ -91,31 +91,7 @@
 			        </webResources>
 			    </configuration>
 			</plugin>
-       <plugin>
-               <groupId>com.google.cloud.tools</groupId>
-                <artifactId>jib-maven-plugin</artifactId>
-                <version>2.0.0</version>
-                <configuration>
-                <allowInsecureRegistries>true</allowInsecureRegistries>
-                    <to>
-                        <image>docker.io/remilou/integration</image>
-                    </to>
-                    <container>
-                        <entrypoint>INHERIT</entrypoint>
-                        <environment>
-                            <MAIN_CLASS>ProductResource</MAIN_CLASS>
-                        </environment>
-                    </container>
-                </configuration>
-                <executions>
-				    <execution>
-				      <phase>package</phase>
-				      <goals>
-				        <goal>build</goal>
-				      </goals>
-				    </execution>
-				  </executions>
-            </plugin>
+       
         </plugins>
     </build>
 </project>
