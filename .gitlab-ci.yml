@@ -18,6 +18,6 @@ deploy:
     - mkdir ~/.ssh
     - ssh-keyscan -p 22 35.195.21.10 > ~/.ssh/known_host
     - eval $(ssh-agent -s)
-    - echo "${SSH_PRIVATE_KEY}" | ssh-add -
+    - echo "${STAGING_PRIVATE_KEY}" | ssh-add -
     - ssh -p22 maclef@35.195.21.10 "sudo -s rm /produits/tomcat/webapps/epsi-contrat.war && rm -r /produits/tomcat/webapps/epsi-contrat"
     - scp -P22 -r target/epsi-contrat.war maclef@35.195.21.10:htdocs/produits/tomcat/webapps/
