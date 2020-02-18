@@ -18,7 +18,6 @@ sonarcloud-check:
   script:
     - mvn verify sonar:sonar
 
-    
 deploy:
   stage: deploy
   script:
