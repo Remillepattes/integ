@@ -25,34 +25,40 @@ public class ProductResource extends HttpServlet {
 		
 	    response.setContentType("text/html");
 	    PrintWriter out = response.getWriter();
-	    out.println("<html>");
-	    out.println("<head>");
-	    out.println("<title>Tous les produits</title>");
-	    out.println("</head>");
-	    out.println("<body bgcolor=\"white\">"
-	    		+ "<h2 align=\"center\">Liste de tous les produits<h2>");
-	    /*
-	    out.println("<p>Chaise grise</p>");
-	    out.println("<p>Chaise verte</p>");
-	    out.println("<p>Chaise marron</p>");
-	    out.println("<p>Chaise violette</p>");
-	    */
+	    out.println("<!DOCTYPE html>\r\n" + 
+	    		"<html>\r\n" + 
+	    		"  <head>\r\n" + 
+	    		"  	<meta charset=\"UTF-8\">\r\n" + 
+	    		"    <title>Boutique RCR</title>\r\n" + 
+	    		"    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\r\n" + 
+	    		"  </head>");
+	    out.println("<body>");
+	    out.println("<header>\r\n" + 
+	    		"  <h2> Liste des produits</h2>\r\n" + 
+	    		"</header>\r\n" + 
+	    		"  <div class=\"topnav\">\r\n" + 
+	    		"  	<a href=\"./\">RCR</a>\r\n" + 
+	    		"  	<a class=\"active\" href=\"./products\">Liste des produits</a>\r\n" + 
+	    		"  	<a href=\"./about.html\">A propos</a>\r\n" + 
+	    		"</div>");
+	    out.println("<article>");
 	    
 	    out.println("<table style=\"width:50%;\" align=\"center\">");
 	    out.println("<tr>");
-	    out.println("<th align=\"center\">Nom du produit</th>");
-	    out.println("<th align=\"center\">Description</th>");
-	    out.println("<th align=\"center\">Prix</th>");
+	    out.println("<th >Nom du produit</th>");
+	    out.println("<th > Description</th>");
+	    out.println("<th >Prix</th>");
 	    out.println("</tr>");
 
 	    for (Product p : productService.getProductList()) {
 	    	out.println("<tr>");
-	    	out.println("<td align=\"center\">"+p.getName_product()+"<td>");
-	    	out.println("<td align=\"center\">"+p.getDesc_product()+"<td>");
-	    	out.println("<td align=\"center\">"+p.getPrice_product()+" e<td>");
+	    	out.println("<td  >"+p.getName_product()+"</td>");
+	    	out.println("<td >"+p.getDesc_product()+"</td>");
+	    	out.println("<td >"+p.getPrice_product()+" e</td>");
 	    	out.println("</tr>");
 		}
 	    out.println("</table>");
+	    out.println("  </article>");
 	    out.println("</body>");
 	    out.println("</html>");
 	}
